@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+   <title>Car Partz</title>
+   <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/cart.css">
+</head>
+<body>
+<div class="cart-page-shell">
+
+   <header class="site-header">
+      <a class="brand-panel" href="index.html" aria-label="Return to store">
+            <img class="brand-mark" src="assets/images/logo.png" alt="Car Partz logo">
+
+            <div>
+                <h1>Car Partz</h1>
+            </div>
+      </a>
+
+      <section class="active-category-panel" aria-live="polite">
+         <h2 id="cart-header-title">0 products selected</h2>
+      </section>
+
+      <nav class="actions-panel" aria-label="Store actions">
+
+            <a class="icon-button" href="index.html" aria-label="Continue shopping">
+                <span aria-hidden="true">&#128269;</span>
+            </a>
+            <a class="icon-button cart-link" href="cart.html" aria-label="Open shopping cart">
+
+                <span aria-hidden="true">&#128722;</span>
+                <span class="cart-badge" id="cart-badge">0</span>
+            </a>
+
+      </nav>
+   </header>
+   <main class="cart-layout">
+
+        <section class="cart-panel">
+            <div class="cart-table-header" aria-hidden="true">
+                <span>Product Name</span>
+
+                <span>Amount</span>
+
+            </div>
+            <div id="cart-items" class="cart-items"></div>
+        </section>
+
+      <aside class="summary-panel">
+            <p class="eyebrow">Summary</p>
+            <h2>Total</h2>
+
+            <dl class="summary-list">
+
+                <div>
+                    <dt>Items</dt>
+                    <dd id="cart-count">0</dd>
+
+                </div>
+
+                <div>
+                    <dt>Estimated total</dt>
+                    <dd id="cart-total">$0.00</dd>
+
+                </div>
+            </dl>
+            <a class="checkout-button" href="index.html">Continue shopping</a>
+      </aside>
+   </main>
+
+</div>
+
+<script src="scripts/data.js"></script>
+<script src="scripts/utils.js"></script>
+
+<script src="scripts/cart.js"></script>
+</body>
+</html>
+

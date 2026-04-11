@@ -1,0 +1,138 @@
+.cart-layout {
+    display: grid;
+    grid-template-columns:minmax(0, 1.45fr) 320px;
+    gap: 16px;
+}
+
+.cart-table-header {
+    padding: 0 18px 16px;
+    border-bottom: 1px solid #cfd8dc;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 180px;
+    gap: 20px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: #5f7279;
+}
+
+.cart-item, .cart-empty {
+    padding: 18px;
+    border-bottom:1px solid #cfd8dc;
+}
+
+.cart-item:last-child {
+    border-bottom: 0;
+}
+
+.cart-item {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 180px;
+    gap: 20px;
+    align-items: center;
+}
+
+.cart-item-details {
+    display: grid;
+    grid-template-columns: 92px minmax(0,1fr);
+    gap: 16px;
+    align-items: center;
+}
+
+.cart-item img {
+    width: 92px;
+    height: 92px;
+    object-fit: cover;
+    border-radius: 8px;
+    border: 1px solid #cfd8dc;
+}
+
+.cart-item h3, .cart-item p,.cart-empty h3,.cart-empty p {
+    margin: 0;
+}
+
+.cart-item h3, .cart-empty h3 {
+    font-size: 1.2rem;
+}
+
+.cart-item p, .cart-empty p{
+
+    color: #5f7279;
+}
+
+.cart-line-price {
+    margin-top: 8px;
+    color: #a6512c;
+    font-weight: 700;
+}
+
+.cart-quantity-controls {
+    display: inline-flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 14px;
+}
+
+.cart-quantity-controls button {
+    width: 36px;
+    height: 36px;
+    border: 1px solid #cfd8dc;
+    border-radius: 8px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: #f8fafb;
+    color: #1f2b30;
+    cursor: pointer;
+}
+
+.cart-quantity-controls span {
+    min-width: 22px;
+    text-align: center;
+    font-weight: 700;
+    font-size: 1rem;
+}
+
+.summary-list {
+    margin: 0 0 20px;
+    display: grid;
+    gap: 12px;
+}
+
+.summary-list div {
+    display: flex;
+    justify-content:space-between;
+    gap: 16px;
+    padding: 10px 0;
+    border-bottom: 1px solid #cfd8dc;
+}
+
+.summary-list div:last-child {
+    border-bottom: 0;
+}
+
+.summary-list dt, .summary-list dd {
+    margin: 0;
+}
+
+.summary-list dd {
+    font-weight: 700;
+}
+
+.checkout-button {
+    display: inline-flex;
+    width: 100%;
+    justify-content: center;
+}
+
+@media (max-width: 1023px) {
+    .cart-layout {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 640px) {
+    .cart-item-details {
+        grid-template-columns: 92px minmax(0,1fr);
+    }
+}
