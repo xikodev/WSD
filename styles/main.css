@@ -30,48 +30,48 @@ button ,input {
     font: inherit;
 }
 
-.page-shell, .cart-page-shell {
+.pageWrap, .cartWrap {
     width: min(1200px, calc(100% - 32px));
-    margin: 24px auto;
+    margin: 22px auto 28px;
 }
 
 .site-header {
     display: grid;
     grid-template-columns: 260px 1fr 150px ;
-    gap: 16px;
-    margin-bottom: 16px;
+    gap: 14px;
+    margin-bottom: 18px;
 }
 
-.brand-panel, .active-category-panel, .actions-panel, .panel, .cart-panel, .summary-panel {
+.brand-panel, .activeCategory, .actions-panel, .panel, .cart-panel, .summary-panel {
     background:white;
     border: 1px solid #cfd8dc;
     border-radius: 10px;
     box-shadow: 0 3px 8px rgba(0, 0, 0, 0.08);
 }
 
-.brand-panel, .active-category-panel, .actions-panel {
+.brand-panel, .activeCategory, .actions-panel {
     min-height:110px;
 }
 
 
 .brand-panel {
-    padding: 18px;
+    padding: 17px 18px 19px;
     display: flex;
     align-items: center;
-    gap: 16px;
+    gap: 14px;
 }
 
-.brand-mark {
-    width: 64px;
-    height: 64px;
+.brand-mark, .brandMark {
+    width: 62px;
+    height: 62px;
     flex-shrink: 0;
 }
 
-.brand-panel h1, .active-category-panel h2, .banner h2, .section-heading h2, .summary-panel h2, .cart-panel h2, .panel-title {
+.brand-panel h1, .activeCategory h2, .banner h2, .section-head h2, .summary-panel h2, .cart-panel h2, .panel-title, .panelTitle {
     margin: 0;
 }
 
-.brand-panel h1, .active-category-panel h2 {
+.brand-panel h1, .activeCategory h2 {
     font-size: 2rem;
 }
 
@@ -86,26 +86,26 @@ button ,input {
     letter-spacing: 0.15em;
     color: #5f7279;
 }
-.active-category-panel{
-    padding: 18px 22px;
+.activeCategory{
+    padding: 18px 24px 17px;
 
     display: flex;
     align-items: center;
 }
 .actions-panel {
-    padding: 14px;
+    padding: 13px;
     display: flex;
     align-items:center;
     justify-content:center;
-    gap: 10px;
+    gap: 12px;
     background: #1f4f57;
 }
 .icon-button {
-    width: 48px;
-    height: 48px;
+    width: 46px;
+    height: 46px;
     border: 1px solid rgba(255, 255, 255, 0.2);
     border-radius: 8px;
-    display: inline-flex;
+    display: flex;
     align-items: center;
     justify-content: center;
     position: relative;
@@ -124,7 +124,7 @@ button ,input {
     padding: 0 5px;
     border: 1px solid #1f4f57;
     border-radius: 999px;
-    display: inline-flex;
+    display: flex;
     align-items: center;
     justify-content: center;
     background: #ffd9a8;
@@ -135,7 +135,7 @@ button ,input {
 
 .sidebar, .content, .layout {
     display: grid;
-    gap: 16px;
+    gap: 18px;
     align-content: start;
 }
 .layout {
@@ -144,28 +144,28 @@ button ,input {
 
 
 .panel, .cart-panel ,.summary-panel{
-    padding: 20px;
+    padding: 18px 20px 22px;
 }
 
 
 .panel-title {
-    margin-bottom: 16px;
+    margin-bottom: 14px;
     font-size: 2rem;
 }
 .category-panel .panel-title {
     margin-left: 80px;
 }
-.category-list {
+.categoryList {
     list-style: none;
     padding: 0 ;
     margin: 0;
     display: grid;
-    gap: 10px;
+    gap: 9px;
 }
 
 .category-button {
     width: 100%;
-    padding: 12px 14px;
+    padding: 11px 14px 12px;
     border: 1px solid #cfd8dc;
     border-radius: 8px;
     text-align: left;
@@ -188,16 +188,16 @@ button ,input {
     font-size: 1.1rem;
 }
 
-.info-links {
+.info-links, .quick-links {
     display: grid;
-    gap: 10px;
+    gap: 11px;
 }
 
 .info-links a ,.checkout-button{
     border-radius: 8px;
     background: #d06b3d;
     color: white;
-    padding: 12px 14px;
+    padding: 11px 14px 12px;
     text-align: center;
     font-size: 1.05rem;
 }
@@ -206,24 +206,24 @@ button ,input {
 .banner {
     display: grid;
     grid-template-columns:minmax(0, 1.1fr) minmax(280px, 0.9fr);
-    gap: 20px;
+    gap: 22px;
     align-items: center;
 }
 
-.banner-copy {
+.banner-copy, .heroCopy {
     display: flex;
     flex-direction: column;
     justify-content: center;
 }
 
-.welcome-banner {
-    display: inline-flex;
+.welcome-banner, .introPill {
+    display: flex;
     width: fit-content;
-    padding: 9px 14px;
+    padding: 8px 15px 9px;
     border: 1px solid #cfd8dc;
     border-radius: 20px;
     background: #f8fafb;
-    margin-bottom: 18px;
+    margin-bottom: 16px;
 }
 
 .welcome-banner p, .product-meta h3  {
@@ -231,11 +231,11 @@ button ,input {
 }
 
 .banner h2 {
-    font-size: 3.25rem;
-    margin-bottom: 12px;
+    font-size: 3.1rem;
+    margin-bottom: 10px;
 }
 
-.banner-image {
+.banner-image, .heroImage {
     width: 100%;
     min-height: 300px;
     object-fit: cover;
@@ -243,24 +243,24 @@ button ,input {
     border: 1px solid #cfd8dc;
 }
 
-.section-heading {
+.section-head {
     display: flex;
     align-items: end;
     justify-content: space-between;
-    gap: 16px;
-    margin-bottom: 18px;
+    gap: 14px;
+    margin-bottom: 20px;
 }
 
-.product-grid {
+.productGrid {
     display: grid;
     grid-template-columns: repeat(4,minmax(0, 1fr));
-    gap: 16px;
+    gap: 18px 15px;
 }
 
 .product-card {
     display: grid;
-    gap: 12px;
-    padding: 14px;
+    gap: 11px;
+    padding: 13px 13px 15px;
     border: 1px solid #cfd8dc;
     border-radius: 10px;
     background: white;
@@ -281,13 +281,13 @@ button ,input {
 
 .product-overlay-button {
     position: absolute;
-    right: 10px;
-    bottom: 10px;
-    width: 44px;
-    height: 44px;
+    right: 9px;
+    bottom: 9px;
+    width: 42px;
+    height: 42px;
     border: 0;
     border-radius: 8px;
-    display: inline-flex;
+    display: flex;
     align-items: center;
     justify-content: center;
     background: #1f4f57;
@@ -306,15 +306,15 @@ button ,input {
 
 .product-quantity-badge {
     position: absolute;
-    top: 10px;
-    right: 10px;
+    top: 9px;
+    right: 9px;
     min-width: 28px;
     height: 28px;
 
     padding: 0 8px;
     border: 1px solid #1f4f57;
     border-radius: 999px;
-    display: inline-flex;
+    display: flex;
     align-items: center;
     justify-content: center;
 
@@ -331,7 +331,7 @@ button ,input {
 
 .product-meta {
     display: grid;
-    gap: 4px;
+    gap: 5px;
 }
 
 
@@ -339,13 +339,6 @@ button ,input {
     margin: 0;
     color: #5f7279;
     font-size: 1rem;
-}
-
-.product-price {
-    margin: 0;
-    color: #a6512c;
-
-    font-size: 1.05rem;
 }
 
 .product-meta h3 {
@@ -356,7 +349,7 @@ button ,input {
     .actions-panel {
         grid-column: 1 / -1;
     }
-    .sidebar,.product-grid ,.site-header {
+    .sidebar,.productGrid ,.site-header {
         grid-template-columns: repeat(2,minmax(0, 1fr));
     }
 
@@ -367,16 +360,16 @@ button ,input {
 }
 
 @media (max-width: 767px) {
-    .cart-page-shell, .page-shell {
+    .cartWrap, .pageWrap {
         width: min(100% - 20px, 720px);
-        margin: 12px auto 24px;
+        margin: 12px auto 22px;
     }
 
    .site-header, .sidebar {
         grid-template-columns: 1fr;
     }
 
-    .section-heading {
+    .section-head {
         align-items: start;
         flex-direction: column;
     }
@@ -398,7 +391,7 @@ button ,input {
 }
 
 @media (max-width: 560px) {
-    .product-grid {
+    .productGrid {
         grid-template-columns: 1fr;
     }
 
@@ -407,7 +400,7 @@ button ,input {
         align-items: start;
     }
 
-    .brand-panel h1, .active-category-panel h2 {
+    .brand-panel h1, .activeCategory h2 {
         font-size: 1.7rem;
     }
 

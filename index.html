@@ -1,94 +1,95 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-   <meta charset="UTF-8">
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <title>Car Partz</title>
+    <title>Car Partz</title>
 
     <link rel="stylesheet" href="styles/main.css">
 </head>
 <body>
 
-<div class="page-shell">
-   <header class="site-header">
-      <a class="brand-panel" href="index.html" aria-label="Car Partz home">
-            <img class="brand-mark" src="assets/images/logo.png" alt="Car Partz logo">
-         <div>
+<div class="pageWrap">
+    <header class="site-header">
+        <a class="brand-panel brandBlock" href="index.html" aria-label="Car Partz home">
+            <img class="brand-mark brandMark" src="assets/images/logo.png" alt="Car Partz logo">
+            <div>
                 <h1>Car Partz</h1>
 
-         </div>
-      </a>
-      <section class="active-category-panel" aria-live="polite">
-         <h2 id="active-category-name">Tires &amp; Wheels</h2>
+            </div>
+        </a>
+        <section class="activeCategory" aria-live="polite">
+            <h2 id="active-category-name">Tires &amp; Wheels</h2>
 
-      </section>
-      <nav class="actions-panel" aria-label="Store actions">
+        </section>
+        <nav class="actions-panel" aria-label="Store actions">
             <a class="icon-button" href="#" aria-label="Search products">
 
                 <span aria-hidden="true">&#128269;</span>
             </a>
-         <a class="icon-button cart-link" href="cart.html" aria-label="Open shopping cart">
+            <a class="icon-button cart-link" href="cart.html" aria-label="Open shopping cart">
                 <span aria-hidden="true">&#128722;</span>
                 <span class="cart-badge" id="cart-badge">0</span>
-         </a>
-      </nav>
+            </a>
+        </nav>
 
-   </header>
+    </header>
 
-   <main class="layout">
-      <aside class="sidebar">
-         <section class="panel category-panel">
+    <main class="layout">
+        <aside class="sidebar">
+            <section class="panel category-panel categoriesBox">
 
-            <h2 class="panel-title">Categories</h2>
-            <nav aria-label="Product categories">
-               <ul id="category-list" class="category-list"></ul>
+                <h2 class="panel-title panelTitle">Categories</h2>
+                <nav aria-label="Product categories">
+                    <ul id="category-list" class="categoryList"></ul>
 
-            </nav>
-         </section>
-         <section class="panel newsletter-panel">
-            <p class="eyebrow">Info</p>
-            <h2 class="panel-title">Contact</h2>
-            <p class="newsletter-copy">Weekly restocks, useful car parts and simple workshop deals.</p>
-            <nav class="info-links" aria-label="Store information">
-               <a href="#">Contact</a>
-                    <a href="#">Newsletter</a>
-
-
-               <a href="#">Subscription</a>
-            </nav>
-         </section>
-      </aside>
+                </nav>
+            </section>
+            <section class="panel newsletter-panel infoBox">
+                <p class="eyebrow">Info</p>
+                <h2 class="panel-title panelTitle">Need a hand?</h2>
+                <p class="newsletter-copy noteCopy">Store pickup, fitment questions, and restock updates without the usual back and forth.</p>
+                <nav class="info-links quick-links" aria-label="Store information">
+                    <a href="#">Call the shop</a>
+                    <a href="#">Restock notes</a>
 
 
-      <section class="content">
-            <section class="banner panel">
-                <div class="banner-copy">
+                    <a href="#">Shipping info</a>
+                </nav>
+            </section>
+        </aside>
 
-                    <div class="welcome-banner">
-                        <p>Welcome to our car parts shop.</p>
+
+        <section class="content">
+            <section class="banner panel heroBanner">
+                <div class="banner-copy heroCopy">
+
+                    <div class="welcome-banner introPill">
+                        <p>Picked for daily drivers and quick fixes.</p>
                     </div>
                     <h2 id="banner-heading">Tires &amp; Wheels</h2>
                     <p id="banner-description">
-                        Tires and wheel parts for everyday driving.
+                        Tires, wheels, and the bits around them for regular road cars.
                     </p>
 
                 </div>
-               <img id="banner-image" class="banner-image" src="assets/images/tires_and_wheels/main.jpg" alt="Featured category image">
+                <img id="banner-image" class="banner-image heroImage" src="assets/images/tires_and_wheels/main.jpg"
+                     alt="Featured category image">
             </section>
 
             <section class="products panel">
-                <div class="section-heading">
+                <div class="section-head">
                     <div>
-                        <h2 id="product-section-title">Featured Products</h2>
+                        <h2 id="product-section-title">On the shelf now</h2>
                     </div>
-                    <p class="section-note">Hover over a product image to add it to the cart.</p>
+                    <p class="section-note sectionNote">Tap the cart button on a product to drop it straight into the basket.</p>
 
                 </div>
-                <div id="product-grid" class="product-grid" aria-live="polite"></div>
+                <div id="product-grid" class="productGrid" aria-live="polite"></div>
 
             </section>
-      </section>
-   </main>
+        </section>
+    </main>
 </div>
 
 <script src="scripts/data.js"></script>

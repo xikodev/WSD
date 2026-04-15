@@ -1,109 +1,97 @@
-
 const categoryList = document.getElementById("category-list");
-const categoryTitle = document.getElementById("active-category-name");
-const bannerTitle = document.getElementById("banner-heading");
-const bannerText = document.getElementById("banner-description");
-const bannerImage = document.getElementById("banner-image");
+const activeTitle = document.getElementById("active-category-name");
+const heroTitle = document.getElementById("banner-heading");
+const heroText = document.getElementById("banner-description");
+const heroImage = document.getElementById("banner-image");
 
-const productGrid = document.getElementById("product-grid");
+const productMount = document.getElementById("product-grid");
 const cartBadge = document.getElementById("cart-badge");
+const catalog = buildCatalog();
 
-let currentCategory = storeData.categories[0];
+let selectedCategory = catalog[0];
 
-
-
-function updateBadgeOnHome() {
-   const total = getCartCount();
-   showBadge(cartBadge, total);
-}
-
-function drawCategoryButtons() {
+function renderCategoryTabs() {
     categoryList.innerHTML = "";
 
-    for (let i = 0; i < storeData.categories.length; i++) {
-
-        const category = storeData.categories[i];
+    for (let i = 0; i < catalog.length; i++) {
+        const category = catalog[i];
         const li = document.createElement("li");
-        const  button = document.createElement("button") ;
+        const button = document.createElement("button");
 
         button.type = "button";
         button.className = "category-button";
         button.textContent = category.name;
 
-        if (category.id === currentCategory.id) {
-         button.classList.add("active");
+        if (category.id === selectedCategory.id) {
+            button.classList.add("active");
         }
         button.addEventListener("click", function () {
-            currentCategory= category;
-            drawPage();
-            });
+            selectedCategory = category;
+            paintHome();
+        });
         li.appendChild(button);
         categoryList.appendChild(li);
     }
 }
 
 
-
-function makeCard(product) {
-    const amountInCart = getCart()[product.id] || 0 ;
+function buildProductCard(product) {
+    const amountInCart = readCart()[product.id] || 0;
     const card = document.createElement("article");
 
-    card.className = "product-card";
+    card.className = "product-card catalogCard";
     card.innerHTML = `
-        <div class="product-image-wrap">
+        <div class="product-image-wrap productShot">
             <img src="${product.image}" alt="${product.name}">
-            <button class="product-overlay-button" type="button" aria-label="Add ${product.name} to cart">
+            <button class="product-overlay-button quick-add" type="button" aria-label="Add ${product.name} to cart">
                 <span aria-hidden="true">&#128722;</span>
             </button>
-            <span class="product-quantity-badge ${amountInCart > 0 ? "show" : ""}">${amountInCart}</span>
+            <span class="product-quantity-badge qtyBadge ${amountInCart > 0 ? "show" : ""}">${amountInCart}</span>
         </div>
-        <div class="product-meta">
+        <div class="product-meta cardMeta">
             <h3>${product.name}</h3>
-            <p class="product-category">${currentCategory.name}</p>
-            <p class="product-price">${formatPrice(product.price)}</p>
+            <p class="product-category cardCategory">${selectedCategory.name}</p>
         </div>
     `;
 
-    const addButton =  card.querySelector(".product-overlay-button");
-    const amountBadge = card.querySelector(".product-quantity-badge" );
+    const addButton = card.querySelector(".product-overlay-button");
+    const amountBadge = card.querySelector(".product-quantity-badge");
     addButton.addEventListener("click", function () {
-        const cart = addToCart( product.id );
+        const cart = bumpCartItem(product.id);
         const newAmount = cart[product.id] || 0;
         amountBadge.textContent = newAmount;
-        if (newAmount > 0 ) {
+        if (newAmount > 0) {
             amountBadge.classList.add("show");
         }
 
-        updateBadgeOnHome();
+        syncBadge(cartBadge, countCartItems());
     });
 
     return card;
 }
-function drawProducts() {
-    productGrid.innerHTML = "";
 
-    for (let i = 0; i < currentCategory.products.length; i++) {
-        productGrid.appendChild(makeCard(currentCategory.products[i]));
+function renderProducts() {
+    productMount.innerHTML = "";
+
+    for (let i = 0; i < selectedCategory.products.length; i++) {
+        productMount.appendChild(buildProductCard(selectedCategory.products[i]));
     }
 }
 
-function drawPage() {
-    categoryTitle.textContent =  currentCategory.name ;
-    bannerTitle.textContent = currentCategory.name;
-    bannerText.textContent = currentCategory.description;
-    bannerImage.src = currentCategory.image;
-    bannerImage.alt = currentCategory.name;
+function paintHome() {
+    activeTitle.textContent = selectedCategory.name;
+    heroTitle.textContent = selectedCategory.name;
+    heroText.textContent = selectedCategory.description;
+    heroImage.src = selectedCategory.image;
+    heroImage.alt = selectedCategory.name;
 
-    drawCategoryButtons();
-    drawProducts();
+    renderCategoryTabs();
+    renderProducts();
 
-    updateBadgeOnHome();
+    syncBadge(cartBadge, countCartItems());
 }
 
-function refreshHomePage() {
-    drawPage();
-}
-window.addEventListener("storage",refreshHomePage);
-window.addEventListener("focus", refreshHomePage );
-window.addEventListener("pageshow", refreshHomePage);
-drawPage();
+window.addEventListener("storage", paintHome);
+window.addEventListener("focus", paintHome);
+window.addEventListener("pageshow", paintHome);
+paintHome();

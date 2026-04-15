@@ -1,237 +1,115 @@
-
-
-
-function makeNameFromFile(file) {
-    let name = file.replace(/\.[^.]+$/, "");
-    name = name.replace(/_/g, " ");
-    name = name.replace(/-/g," ") ;
-    name = name.replace(/\s+/g, " ").trim();
-
-
-    return name.replace(/\b\w/g, function (letter) {
-        return letter.toUpperCase();
-    });
-
-}
-
-function makeId(text) {
-
-  return text.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
-}
-
-const names = {
-    "Tires & Wheels": {
-        "alloy.webp": "Alloy Wheels",
-        "chains.jpg": "Snow Chains",
-        "steel.webp": "Steel Wheels",
-        "summer.jpg": "Summer Tires",
-        "winter.jpg": "Winter Tires"
-
-    },
-    "Brakes": {
-        "front_brake_pads.webp": "Front Brake Pads",
-        "front_brake_rotors.jfif": "Front Brake Rotors",
-        "hardware_kit.webp": "Brake Hardware Kit",
-        "rear_brake_pads.webp": "Rear Brake Pads",
-        "rear_brake_rotors.jfif": "Rear Brake Rotors"
-    },
-    "Batteries":  {
-
-        "12v_battery_1.jpg": "12V Battery",
-        "12v_battery_2.jpg": "12V Battery",
-        "12v_battery_3.jpg": "12V Battery",
-        "clamps.jpg": "Battery Clamps",
-        "jump_starter.jpg": "Jump Starter"
-    },
-    "Engine Parts": {
-        "block.jpg": "Engine Block",
-        "crankshaft.jpg": "Engine Crankshaft",
-        "head_gasket.jpg": "Head Gasket",
-        "piston.jpg": "Engine Pistons",
-        "timing_belt.jpg": "Timing Belt"
-    },
-
-    "Exhaust": {
-        "muffler.jfif": "Rear Muffler",
-        "exhaust_tip.webp": "Exhaust Tip",
-        "exhaust_hanger.webp": "Exhaust Hanger",
-        "heat_shield_plate.webp": "Heat Shield Plate",
-        "exhaust_clamp.webp": "Exhaust Clamp"
-    },
-    "Filters": {
-        "cabin_filter.webp": "Cabin Air Filter",
-        "engine_air_filter.webp": "Engine Air Filter",
-        "fuel_pump_filter.jpg": "Fuel Pump Filter",
-        "oil_filter.jpg": "Oil Filter",
-        "transmission_filter.jpg": "Transmission Filter"
-    },
-    "Ignition":
-        {
-        "spark_plug.jpg": "Spark Plug",
-        "ignition_coil_pack.jpg": "Ignition Coil Pack",
-        "distributor_cap.jpg": "Distributor Cap",
-        "glow_plug.webp": "Glow Plug",
-        "ignition_switch.webp": "Ignition Switch"
-    },
-    "Interior": {
-        "steering_wheel_cover.jpg": "Steering Wheel Cover",
-        "shift_knob.jpg": "Shift Knob",
-        "seat_covers.webp": "Seat Covers",
-        "floor_mats.webp": "Floor Mats",
-        "phone_mount.webp": "Phone Mount"
-    },
-
-    "Lighting": {
-        "brake_light.webp": "Brake Light",
-        "front_left_headlight.jpg": "Front Left Headlight",
-        "front_right_headlight.jpg": "Front Right Headlight",
-        "rear_left_light.webp": "Rear Left Light",
-        "rear_right_light.webp": "Rear Right Light"
-    },
-    "Workshop Tools" :{
-        "socket_set.jpg": "Socket Set",
-        "torque_wrench.jpg": "Torque Wrench",
-        "jack_stands.jpg": "Jack Stands",
-        "oil_funnel.avif": "Oil Funnel",
-        "carry_tool_kit.webp": "Carry Tool Kit"
-    }
-};
-
-const catalog = [
-    {
-        id: "tires-wheels",
-        name: "Tires & Wheels",
-        folder: "tires_and_wheels",
-        banner:"main.jpg",
-        text:"Tires, rims, chains and wheel parts for normal everyday driving.",
-        items: ["alloy.webp", "chains.jpg", "steel.webp", "summer.jpg", "winter.jpg"],
-        prices: [139.00, 34.90, 84.20, 118.90, 124.90]
-    },
-    {
-
-        id: "brakes",
-        name: "Brakes",
-        folder: "brakes",
-        banner: "main.jpg" ,
-        text: "Common brake parts and kits for regular cars.",
-        items: ["front_brake_pads.webp", "front_brake_rotors.jfif", "hardware_kit.webp", "rear_brake_pads.webp", "rear_brake_rotors.jfif"],
-        prices: [42.90, 57.40, 16.75, 39.80, 53.15]
-    },
-    {
-        id: "batteries",
-        name: "Batteries",
-        folder: "batteries",
-        banner: "main.jpg",
-        text: "Battery products and a few useful accessories.",
-        items: ["12v_battery_1.jpg", "12v_battery_2.jpg", "12v_battery_3.jpg", "clamps.jpg", "jump_starter.jpg"],
-        prices: [129.90, 139.90, 144.60, 14.30, 69.90]
-
-    },
-    {
-        id: "engine-parts",
-        name: "Engine Parts",
-        folder: "engine_parts",
-        banner: "main.jpg",
-        text: "Basic engine components and service parts.",
-        items: ["block.jpg","crankshaft.jpg", "head_gasket.jpg", "piston.jpg", "timing_belt.jpg"],
-        prices: [149.90, 112.90, 21.40, 34.90, 67.25]
-    },
-
-    {
-        id: "exhaust",
-        name: "Exhaust",
-        folder: "exhaust",
-        banner: "main.webp",
-        text: "Exhaust parts that are common on a normal road car.",
-        items: ["muffler.jfif", "exhaust_tip.webp", "exhaust_hanger.webp", "heat_shield_plate.webp", "exhaust_clamp.webp"],
-        prices: [119.90, 29.90, 8.50, 19.90, 11.90]
-    },
-    {
-        id: "filters",
-        name: "Filters",
-        folder: "filters",
-        banner: "main.png",
-        text: "Air, oil, fuel and transmission filters.",
-        items: ["cabin_filter.webp", "engine_air_filter.webp", "fuel_pump_filter.jpg", "oil_filter.jpg", "transmission_filter.jpg"],
-        prices: [18.40, 15.90, 12.75, 9.85, 24.90]
-    },
-    {
-        id: "ignition",
-        name: "Ignition",
-        folder: "ignition",
-
-        banner: "main.jpg",
-        text: "Ignition parts for starting and spark delivery.",
-        items: ["spark_plug.jpg", "ignition_coil_pack.jpg", "distributor_cap.jpg", "glow_plug.webp", "ignition_switch.webp"],
-        prices: [8.99, 79.90, 24.90, 18.50, 49.90]
-    },
-    {
-        id: "interior",
-        name: "Interior",
-        folder: "interior" ,
-        banner: "main.jpg",
-        text: "Interior accessories for comfort and daily use.",
-        items: ["steering_wheel_cover.jpg", "shift_knob.jpg", "seat_covers.webp", "floor_mats.webp", "phone_mount.webp"],
-        prices: [17.40, 24.90, 49.90, 46.75, 19.95]
-    },
-    {
-        id: "lighting",
-        name: "Lighting",
-        folder: "lighting",
-        banner: "main.jpg",
-        text: "Front and rear lights for everyday vehicles.",
-        items: ["brake_light.webp", "front_left_headlight.jpg", "front_right_headlight.jpg", "rear_left_light.webp", "rear_right_light.webp"],
-        prices: [12.50, 54.80, 58.80, 34.90, 36.90]
-    },
-
-    {
-        id: "tools",
-        name: "Workshop Tools",
-        folder: "workshop_tools",
-        banner: "main.jpg",
-        text: "Garage tools for simple repairs and maintenance.",
-        items: ["socket_set.jpg", "torque_wrench.jpg", "jack_stands.jpg", "oil_funnel.avif", "carry_tool_kit.webp"],
-        prices: [59.90, 74.50, 42.75, 16.90, 29.90]
-    }
-
-];
-
-const storeData = {
+const data = {
     website: "Car Partz",
-    currency: "USD",
-    bannerMessage: "Welcome to your one-stop shop for essential car parts.",
-    categories: [ ]
+    categories: [
+        {
+            name: "Tires & Wheels",
+            image: "main.jpg",
+            products: [
+                { name: "Alloy Wheels", image: "alloy.webp" },
+                {name: "Snow Chains", image: "chains.jpg" },
+                { name: "Steel Wheels", image: "steel.webp" },
+                { name: "Summer Tires", image: "summer.jpg" },
+                { name: "Winter Tires", image: "winter.jpg" }
+            ]
+        },
+        {
+            name: "Brakes",
+            image: "main.jpg",
+            products: [
+                { name: "Front Brake Pads", image: "front_brake_pads.webp" },
+                { name: "Front Brake Rotors", image: "front_brake_rotors.jfif" },
+                { name: "Brake Hardware Kit", image: "hardware_kit.webp"},
+                { name: "Rear Brake Pads", image: "rear_brake_pads.webp" },
+                { name: "Rear Brake Rotors", image: "rear_brake_rotors.jfif" }
+            ]
+        },
+        {
+            name: "Batteries",
+            image: "main.jpg",
+            products: [
+                { name: "12V Battery",  image: "12v_battery_1.jpg" },
+                { name: "12V Battery", image: "12v_battery_2.jpg" },
+                { name: "12V Battery", image: "12v_battery_3.jpg" },
+                { name: "Battery Clamps", image: "clamps.jpg" },
+                {name: "Jump Starter", image: "jump_starter.jpg" }
+            ]
+        },
+        {
+            name: "Engine Parts",
+            image: "main.jpg",
+            products: [
+                { name: "Engine Block",image: "block.jpg" },
+                { name: "Engine Crankshaft", image: "crankshaft.jpg" },
+                { name: "Head Gasket", image:"head_gasket.jpg" },
+                { name: "Engine Pistons", image: "piston.jpg" },
+                { name: "Timing Belt", image: "timing_belt.jpg" }
+            ]
+        },
+        {
+            name: "Exhaust",
+            image: "main.webp",
+            products: [
+                {name: "Rear Muffler", image: "muffler.jfif" },
+                {name: "Exhaust Tip", image: "exhaust_tip.webp" },
+                {name: "Exhaust Hanger", image: "exhaust_hanger.webp" },
+                {name: "Heat Shield Plate", image: "heat_shield_plate.webp" },
+                {name: "Exhaust Clamp", image: "exhaust_clamp.webp" }
+            ]
+        },
+        {
+            name: "Filters",
+            image: "main.png",
+            products: [
+                { name: "Cabin Air Filter", image: "cabin_filter.webp" },
+                { name: "Engine Air Filter", image:"engine_air_filter.webp"},
+                { name: "Fuel Pump Filter",image: "fuel_pump_filter.jpg" },
+                { name: "Oil Filter", image: "oil_filter.jpg"},
+                { name: "Transmission Filter", image: "transmission_filter.jpg" }
+            ]
+        },
+        {
+            name: "Ignition",
+            image: "main.jpg",
+            products: [
+                { name: "Spark Plug", image:"spark_plug.jpg" },
+                { name: "Ignition Coil Pack", image: "ignition_coil_pack.jpg" },
+                { name: "Distributor Cap",image: "distributor_cap.jpg" },
+                { name: "Glow Plug", image: "glow_plug.webp" },
+                { name: "Ignition Switch", image: "ignition_switch.webp" }
+            ]
+        },
+        {
+            name: "Interior",
+            image: "main.jpg",
+            products: [
+                { name: "Steering Wheel Cover", image: "steering_wheel_cover.jpg" },
+                { name: "Shift Knob", image:"shift_knob.jpg" },
+                { name: "Seat Covers", image: "seat_covers.webp" },
+                { name: "Floor Mats", image: "floor_mats.webp" },
+                { name: "Phone Mount", image: "phone_mount.webp" }
+            ]
+        },
+        {
+            name: "Lighting",
+            image: "main.jpg",
+            products: [
+                { name: "Brake Light", image: "brake_light.webp"},
+                { name: "Front Left Headlight", image: "front_left_headlight.jpg" },
+                { name: "Front Right Headlight", image: "front_right_headlight.jpg" },
+                { name: "Rear Left Light", image: "rear_left_light.webp" },
+                { name: "Rear Right Light",image: "rear_right_light.webp" }
+            ]
+        },
+        {
+            name: "Workshop Tools",
+            image: "main.jpg",
+            products: [
+                { name: "Socket Set", image:"socket_set.jpg" },
+                { name: "Torque Wrench", image: "torque_wrench.jpg" },
+                { name: "Jack Stands",image: "jack_stands.jpg" },
+                { name: "Oil Funnel", image: "oil_funnel.avif" },
+                { name: "Carry Tool Kit", image: "carry_tool_kit.webp" }
+            ]
+        }
+    ]
 };
-
-
-
-
-for (let i = 0; i < catalog.length; i++) {
-    const section = catalog[i];
-    const products = [];
-
-    for (let j = 0; j < section.items.length; j++) {
-        const file = section.items[j];
-        const prettyNames = names[section.name] || {};
-        const itemName = prettyNames[file] || makeNameFromFile(file) ;
-
-       products.push({
-            id: section.id + "-" + makeId(file),
-            name: itemName,
-            image: "assets/images/" + section.folder + "/" + file,
-
-            price: section.prices[j]
-        } );
-    }
-
-
-   storeData.categories.push({
-        id: section.id,
-        name: section.name,
-        image:"assets/images/"+ section.folder + "/"+ section.banner,
-        description: section.text,
-        products: products
-    });
-}
-
-

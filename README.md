@@ -1,13 +1,12 @@
-# Car Partz
-
-This is my lab project for a simple car parts web shop.
+# Car Partz - lab01
 
 ## Files
-- `index.html` is the main page
-- `cart.html` is the cart page
-- `scripts/` has the JavaScript
-- `styles/` has the CSS
+- `index.html` is main page
+- `cart.html` is cart page
+- `scripts/` has JavaScript
+- `styles/` has CSS
 - `assets/images/` has all images
+- `assets/fonts/` has the font
 
-## Note
-All product pictures are saved locally inside `assets/images/`.
+Made by Borna Krpan
+

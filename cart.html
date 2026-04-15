@@ -9,18 +9,18 @@
     <link rel="stylesheet" href="styles/cart.css">
 </head>
 <body>
-<div class="cart-page-shell">
+<div class="cartWrap">
 
    <header class="site-header">
-      <a class="brand-panel" href="index.html" aria-label="Return to store">
-            <img class="brand-mark" src="assets/images/logo.png" alt="Car Partz logo">
+      <a class="brand-panel brandBlock" href="index.html" aria-label="Return to store">
+            <img class="brand-mark brandMark" src="assets/images/logo.png" alt="Car Partz logo">
 
             <div>
                 <h1>Car Partz</h1>
             </div>
       </a>
 
-      <section class="active-category-panel" aria-live="polite">
+      <section class="activeCategory" aria-live="polite">
          <h2 id="cart-header-title">0 products selected</h2>
       </section>
 
@@ -37,9 +37,9 @@
 
       </nav>
    </header>
-   <main class="cart-layout">
+   <main class="cartLayout">
 
-        <section class="cart-panel">
+        <section class="cart-panel cartBox">
             <div class="cart-table-header" aria-hidden="true">
                 <span>Product Name</span>
 
@@ -49,25 +49,19 @@
             <div id="cart-items" class="cart-items"></div>
         </section>
 
-      <aside class="summary-panel">
+      <aside class="summary-panel totalsPanel">
             <p class="eyebrow">Summary</p>
-            <h2>Total</h2>
+            <h2>Bag total</h2>
 
-            <dl class="summary-list">
+            <dl class="summaryList">
 
                 <div>
                     <dt>Items</dt>
                     <dd id="cart-count">0</dd>
 
                 </div>
-
-                <div>
-                    <dt>Estimated total</dt>
-                    <dd id="cart-total">$0.00</dd>
-
-                </div>
             </dl>
-            <a class="checkout-button" href="index.html">Continue shopping</a>
+            <a class="checkout-button" href="index.html">Back to parts</a>
       </aside>
    </main>
 
