@@ -35,6 +35,7 @@ async function getMax() {
     return Math.max(firstMax, secondMax);
 }
 
+// The task explicitly asks to call getMax() and print either the result or the error flow.
 getMax()
     .then((maxValue) => {
         console.log(maxValue);

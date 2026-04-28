@@ -4,6 +4,7 @@ const acceptButton = document.getElementById("accept-btn");
 const rejectButton = document.getElementById("reject-btn");
 
 function saveChoice(choice) {
+    // Persist the decision so the popup stays hidden on future visits.
     localStorage.setItem(storageKey, choice);
     cookieConsent.classList.add("hidden");
 }

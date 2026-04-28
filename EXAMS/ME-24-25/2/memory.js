@@ -29,6 +29,7 @@ let pendingMismatch = [];
 let matchedPairs = 0;
 let gameOver = false;
 
+// Shuffle once before rendering so the board starts in random order.
 shuffle(symbols);
 renderBoard();
 updateScore();
@@ -62,6 +63,7 @@ function randomIndex(max) {
 }
 
 function renderBoard() {
+    // Each symbol becomes one clickable card on the board.
     for (const symbol of symbols) {
         const card = document.createElement("button");
         card.type = "button";
@@ -83,6 +85,7 @@ function handleCardClick(card) {
     }
 
     if (pendingMismatch.length === 2) {
+        // A wrong pair stays visible until the user starts the next move.
         hidePendingMismatch();
     }
 
@@ -112,6 +115,7 @@ function evaluateMove() {
     const isMatch = firstCard.dataset.symbol === secondCard.dataset.symbol;
 
     if (isMatch) {
+        // Matched cards stay revealed and become unclickable.
         firstCard.classList.remove("disabled");
         firstCard.classList.add("matched");
         secondCard.classList.add("matched");
@@ -129,6 +133,7 @@ function evaluateMove() {
 
     score -= 10;
     updateScore();
+    // Wrong pairs remain open until the next card click, per task rules.
     firstCard.classList.remove("disabled");
     firstCard.classList.add("disabled");
     secondCard.classList.add("disabled");
@@ -160,6 +165,7 @@ function updateTimer() {
 function revealAllCards() {
     const cards = board.querySelectorAll(".card");
 
+    // The task requires all cards to be shown when the game ends.
     for (const card of cards) {
         revealCard(card);
         card.classList.add("disabled");

@@ -10,10 +10,12 @@ async function getOverlap(firstFile, secondFile) {
         secondResponse.json()
     ]);
 
+    // A Set makes overlap checks efficient and keeps the result order of the first array.
     const secondValues = new Set(secondArray);
     return firstArray.filter((value) => secondValues.has(value));
 }
 
+// The returned promise is consumed here and its result is written to the console.
 getOverlap("first.json", "second.json").then((overlap) => {
     console.log(overlap);
 });

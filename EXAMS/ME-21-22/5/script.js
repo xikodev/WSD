@@ -11,12 +11,14 @@ const messageInput = document.getElementById("message");
 const saveDraftButton = document.getElementById("save-draft");
 
 function loadDraft() {
+    // Restore any previously saved draft when the page is opened again.
     nameInput.value = localStorage.getItem(storageKeys.name) || "";
     emailInput.value = localStorage.getItem(storageKeys.email) || "";
     messageInput.value = localStorage.getItem(storageKeys.message) || "";
 }
 
 function saveDraft() {
+    // Save each field separately so the draft can be recovered later.
     localStorage.setItem(storageKeys.name, nameInput.value);
     localStorage.setItem(storageKeys.email, emailInput.value);
     localStorage.setItem(storageKeys.message, messageInput.value);
@@ -42,6 +44,7 @@ function validateForm() {
         document.getElementById("email-error").textContent = "E-mail is required.";
         isValid = false;
     } else if (!/^.+@.+$/.test(emailValue)) {
+        // The task only requires checking the simple x@y shape.
         document.getElementById("email-error").textContent = "E-mail must be in x@y format.";
         isValid = false;
     }
@@ -64,6 +67,7 @@ form.addEventListener("submit", (event) => {
         return;
     }
 
+    // A successful submit should no longer keep the old draft in storage.
     localStorage.removeItem(storageKeys.name);
     localStorage.removeItem(storageKeys.email);
     localStorage.removeItem(storageKeys.message);
