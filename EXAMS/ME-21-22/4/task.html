@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task 4</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        :root {
+            font-size: 16px;
+        }
+
+        body {
+            margin: 0;
+            padding: 10px;
+            font-family: Georgia, serif;
+        }
+
+        header {
+            border: 1px solid green;
+            border-radius: 2px;
+            padding: 18px 16px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .full-name,
+        .initials {
+            margin: 0;
+            font-size: 1.5rem;
+            font-weight: normal;
+        }
+
+        nav ul {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            display: flex;
+            gap: 18px;
+        }
+
+        nav a,
+        .mobile-link {
+            color: blue;
+            text-decoration: underline;
+        }
+
+        nav a {
+            padding: 2px 4px;
+        }
+
+        nav a:hover {
+            background: aqua;
+        }
+
+        .initials,
+        .mobile-link {
+            display: none;
+        }
+
+        @media (max-width: 499px) {
+            .full-name,
+            nav {
+                display: none;
+            }
+
+            .initials,
+            .mobile-link {
+                display: inline;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1 class="full-name">Borna B.</h1>
+        <h1 class="initials">B.B.</h1>
+
+        <nav>
+            <ul>
+                <li><a href="#">Link1</a></li>
+                <li><a href="#">Link2</a></li>
+                <li><a href="#">Link3</a></li>
+            </ul>
+        </nav>
+
+        <a class="mobile-link" href="#">Links...</a>
+    </header>
+</body>
+</html>

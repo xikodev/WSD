@@ -1,0 +1,151 @@
+@font-face {
+    font-family: "Playwrite";
+    src: url("Playwrite.ttf") format("truetype");
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 12px;
+    background: #f9bb00;
+    font-family: "Playwrite", cursive;
+}
+
+body > div {
+    max-width: 1240px;
+    margin: 0 auto;
+}
+
+section {
+    position: relative;
+    margin-bottom: 10px;
+    padding: 16px 18px 22px;
+    background: #fff;
+    border: 1px solid #d1d1d1;
+    border-radius: 6px;
+    text-align: center;
+}
+
+h1 {
+    margin: 0;
+    color: #d35400;
+    font-size: 2rem;
+    font-weight: normal;
+    line-height: 1.15;
+}
+
+h1[data-new]::after {
+    content: "🔥";
+    display: inline-block;
+    margin-left: 0.2em;
+    font-size: 0.8em;
+    vertical-align: middle;
+}
+
+section::after {
+    content: "";
+    position: absolute;
+    left: 10%;
+    top: 64px;
+    width: 80%;
+    border-top: 1px solid navy;
+    opacity: 0.35;
+}
+
+img {
+    display: block;
+    height: 88px;
+    margin: 18px auto 8px;
+}
+
+ul {
+    width: fit-content;
+    margin: 0 auto 14px;
+    padding-left: 20px;
+    color: #4a4a4a;
+    font-size: 0.98rem;
+    line-height: 1.7;
+    text-align: left;
+}
+
+.price {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 58px;
+    height: 58px;
+    margin: 0 auto 12px;
+    border-radius: 50%;
+    background: #f9bb00;
+    color: #000;
+    font-size: 1.7rem;
+}
+
+button {
+    display: block;
+    margin: 0 auto;
+    padding: 10px 22px;
+    border: none;
+    border-radius: 14px;
+    background: green;
+    color: #fff;
+    font-family: Arial, sans-serif;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+button:hover {
+    background: darkgreen;
+}
+
+@media (min-width: 1024px) {
+    body {
+        padding: 8px;
+    }
+
+    section {
+        min-height: 184px;
+        padding: 16px 18px 18px;
+    }
+
+    h1 {
+        font-size: 2rem;
+    }
+
+    section::after {
+        top: 67px;
+    }
+
+    img {
+        position: absolute;
+        top: 32px;
+        left: 18px;
+        height: 68px;
+        margin: 0;
+    }
+
+    ul {
+        display: flex;
+        justify-content: center;
+        gap: 30px;
+        width: auto;
+        margin: 18px 0 14px;
+        padding: 0;
+        list-style: none;
+        text-align: center;
+    }
+
+    .price {
+        width: 56px;
+        height: 56px;
+        margin-bottom: 10px;
+        font-size: 1.7rem;
+    }
+
+    button {
+        padding: 9px 24px;
+    }
+}
