@@ -1,12 +1,19 @@
-# Car Partz - lab01
+# Car Partz - Lab 02
 
-## Files
-- `index.html` is main page
-- `cart.html` is cart page
-- `scripts/` has JavaScript
-- `styles/` has CSS
-- `assets/images/` has all images
-- `assets/fonts/` has the font
+Express/EJS webshop upgrade for the second laboratory exercise.
+
+## Run
+
+```bash
+npm install
+npm start
+```
+
+Open `http://localhost:3000`.
+
+## Submission
+
+Submit this project as one ZIP archive without the `node_modules` folder.
 
 Made by Borna Krpan
 
