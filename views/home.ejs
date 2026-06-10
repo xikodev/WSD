@@ -1,0 +1,73 @@
+<%- include("partials/header", { title: title }) %>
+
+<div class="pageWrap">
+    <header class="site-header">
+        <a class="brand-panel brandBlock" href="/home" aria-label="Car Partz home">
+            <img class="brand-mark brandMark" src="/images/logo.png" alt="Car Partz logo">
+            <div>
+                <h1>Car Partz</h1>
+            </div>
+        </a>
+        <section class="activeCategory" aria-live="polite">
+            <h2 id="active-category-name">Loading</h2>
+        </section>
+        <nav class="actions-panel" aria-label="Store actions">
+            <a class="icon-button" href="#" aria-label="Search products">
+                <span aria-hidden="true">&#128269;</span>
+            </a>
+            <a class="icon-button cart-link" href="/cart" aria-label="Open shopping cart">
+                <span aria-hidden="true">&#128722;</span>
+                <span class="cart-badge" id="cart-badge">0</span>
+            </a>
+        </nav>
+    </header>
+
+    <main class="layout">
+        <aside class="sidebar">
+            <section class="panel category-panel categoriesBox">
+                <h2 class="panel-title panelTitle">Categories</h2>
+                <nav aria-label="Product categories">
+                    <ul id="category-list" class="categoryList"></ul>
+                </nav>
+            </section>
+            <section class="panel newsletter-panel infoBox">
+                <p class="eyebrow">Info</p>
+                <h2 class="panel-title panelTitle">Need a hand?</h2>
+                <p class="newsletter-copy noteCopy">Store pickup, fitment questions, and restock updates without the usual back and forth.</p>
+                <nav class="info-links quick-links" aria-label="Store information">
+                    <a href="#">Call the shop</a>
+                    <a href="#">Restock notes</a>
+                    <a href="#">Shipping info</a>
+                </nav>
+            </section>
+        </aside>
+
+        <section class="content">
+            <section class="banner panel heroBanner">
+                <div class="banner-copy heroCopy">
+                    <div class="welcome-banner introPill">
+                        <p>Picked for daily drivers and quick fixes.</p>
+                    </div>
+                    <h2 id="banner-heading">Loading</h2>
+                    <p id="banner-description">Loading products.</p>
+                </div>
+                <img id="banner-image" class="banner-image heroImage" src="/images/tires_and_wheels/main.jpg" alt="Featured category image">
+            </section>
+
+            <section class="products panel">
+                <div class="section-head">
+                    <div>
+                        <h2 id="product-section-title">On the shelf now</h2>
+                    </div>
+                    <p class="section-note sectionNote">Tap the cart button on a product to drop it straight into the basket.</p>
+                </div>
+                <div id="product-grid" class="productGrid" aria-live="polite"></div>
+            </section>
+        </section>
+    </main>
+</div>
+
+<script src="/scripts/utils.js"></script>
+<script src="/scripts/app.js"></script>
+
+<%- include("partials/footer") %>

@@ -1,0 +1,52 @@
+<%- include("partials/header", { title: title, extraCss: ["/styles/cart.css"] }) %>
+
+<div class="cartWrap">
+    <header class="site-header">
+        <a class="brand-panel brandBlock" href="/home" aria-label="Return to store">
+            <img class="brand-mark brandMark" src="/images/logo.png" alt="Car Partz logo">
+            <div>
+                <h1>Car Partz</h1>
+            </div>
+        </a>
+
+        <section class="activeCategory" aria-live="polite">
+            <h2 id="cart-header-title">0 products selected</h2>
+        </section>
+
+        <nav class="actions-panel" aria-label="Store actions">
+            <a class="icon-button" href="/home" aria-label="Continue shopping">
+                <span aria-hidden="true">&#128269;</span>
+            </a>
+            <a class="icon-button cart-link" href="/cart" aria-label="Open shopping cart">
+                <span aria-hidden="true">&#128722;</span>
+                <span class="cart-badge" id="cart-badge">0</span>
+            </a>
+        </nav>
+    </header>
+    <main class="cartLayout">
+        <section class="cart-panel cartBox">
+            <div class="cart-table-header" aria-hidden="true">
+                <span>Product Name</span>
+                <span>Amount</span>
+            </div>
+            <div id="cart-items" class="cart-items"></div>
+        </section>
+
+        <aside class="summary-panel totalsPanel">
+            <p class="eyebrow">Summary</p>
+            <h2>Bag total</h2>
+            <dl class="summaryList">
+                <div>
+                    <dt>Items</dt>
+                    <dd id="cart-count">0</dd>
+                </div>
+            </dl>
+            <a class="checkout-button" href="/home">Back to parts</a>
+        </aside>
+    </main>
+</div>
+
+<script src="/scripts/utils.js"></script>
+<script src="/scripts/cart.js"></script>
+
+<%- include("partials/footer") %>
