@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Add Movie</title>
+  <link rel="stylesheet" href="/css/site.css">
+</head>
+<body>
+  <div class="page">
+    <section class="card form-card">
+      <div class="topbar">
+        <h1>Add Movie</h1>
+        <a href="/movies" class="btn">Back to list</a>
+      </div>
+
+      <% if (errorMessage) { %>
+        <div class="error-message"><%= errorMessage %></div>
+      <% } %>
+
+      <form method="post" action="/movies/add" class="movie-form">
+        <label>
+          <span>Title</span>
+          <input type="text" name="title" value="<%= formData.title %>">
+        </label>
+
+        <label>
+          <span>Year</span>
+          <input type="number" name="year" value="<%= formData.year %>">
+        </label>
+
+        <label>
+          <span>Genre</span>
+          <input type="text" name="genre" value="<%= formData.genre %>">
+        </label>
+
+        <label>
+          <span>Description</span>
+          <textarea name="description" rows="5"><%= formData.description %></textarea>
+        </label>
+
+        <button type="submit" class="btn">Save movie</button>
+      </form>
+    </section>
+  </div>
+</body>
+</html>

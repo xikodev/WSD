@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Movies</title>
+  <link rel="stylesheet" href="/css/site.css">
+</head>
+<body>
+  <div class="page">
+    <section class="card">
+      <div class="topbar">
+        <h1>Movie List</h1>
+        <div class="actions">
+          <a href="/" class="btn btn-secondary">Home</a>
+          <a href="/movies/add" class="btn">Add movie</a>
+        </div>
+      </div>
+
+      <% if (movies.length === 0) { %>
+        <p class="empty-state">No movies added yet.</p>
+      <% } else { %>
+        <div class="movie-grid">
+          <% movies.forEach((movie) => { %>
+            <article class="movie-card">
+              <h2><%= movie.title %></h2>
+              <p class="movie-meta"><%= movie.year %> • <%= movie.genre %></p>
+              <p class="movie-description"><%= movie.description %></p>
+              <a href="/movies/delete/<%= movie.id %>" class="btn delete-btn">Delete</a>
+            </article>
+          <% }) %>
+        </div>
+      <% } %>
+    </section>
+  </div>
+</body>
+</html>

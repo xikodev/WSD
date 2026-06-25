@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Personal Reminders</title>
+  <link rel="stylesheet" href="/css/site.css">
+</head>
+<body>
+  <div class="page">
+    <header class="header">
+      <h1>Personal reminders</h1>
+
+      <form action="/todos" method="post" class="todo-form">
+        <select name="category">
+          <% categories.forEach((category) => { %>
+            <option value="<%= category %>" <%= formData.category === category ? 'selected' : '' %>>
+              <%= category %>
+            </option>
+          <% }) %>
+        </select>
+
+        <input
+          type="text"
+          name="description"
+          placeholder="Reminder description"
+          value="<%= formData.description %>"
+        >
+
+        <button type="submit">Add reminder</button>
+      </form>
+
+      <% if (errorMessage) { %>
+        <div class="error-message"><%= errorMessage %></div>
+      <% } %>
+    </header>
+
+    <main class="category-grid">
+      <% groupedTodos.forEach((group) => { %>
+        <section class="category-card">
+          <h2><%= group.category %> (<%= group.todos.length %>)</h2>
+
+          <% if (group.todos.length === 0) { %>
+            <p class="empty-state">No reminders.</p>
+          <% } else { %>
+            <ol class="todo-list">
+              <% group.todos.forEach((todo) => { %>
+                <li class="todo-item">
+                  <span class="todo-description"><%= todo.description %></span>
+
+                  <div class="todo-meta">
+                    <span class="todo-date">
+                      <%= new Date(todo.createdAt).toLocaleDateString() %>
+                    </span>
+
+                    <form action="/todos/<%= todo.id %>/delete" method="post">
+                      <button type="submit" class="delete-btn">Delete</button>
+                    </form>
+                  </div>
+                </li>
+              <% }) %>
+            </ol>
+          <% } %>
+        </section>
+      <% }) %>
+    </main>
+
+    <footer class="footer">
+      <strong>Personal reminders:</strong> <%= personalCount %>
+      |
+      <strong>Total reminders:</strong> <%= totalCount %>
+    </footer>
+  </div>
+</body>
+</html>

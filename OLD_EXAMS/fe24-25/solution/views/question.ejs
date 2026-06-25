@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Question <%= questionNumber %></title>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <h1><%= quiz.title %></h1>
+      <div class="progress">Question <%= questionNumber %> of <%= totalQuestions %></div>
+    </div>
+
+    <div class="main">
+      <div class="question-card">
+        <div class="category-badge"><%= question.category %></div>
+        <h2 class="question-title"><%= question.question %></h2>
+
+        <% if (errorMessage) { %>
+          <div class="error-message"><%= errorMessage %></div>
+        <% } %>
+
+        <form method="post" action="/quiz/question/<%= questionNumber %>/answer">
+          <div class="options">
+            <% question.options.forEach((option, index) => { %>
+              <label class="option">
+                <input type="radio" name="answer" value="<%= index %>">
+                <span class="option-text">
+                  <%= String.fromCharCode(65 + index) %>. <%= option %>
+                </span>
+              </label>
+            <% }) %>
+          </div>
+
+          <button type="submit" class="submit-btn">
+            <%= questionNumber === totalQuestions ? 'Finish quiz' : 'Next question' %>
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

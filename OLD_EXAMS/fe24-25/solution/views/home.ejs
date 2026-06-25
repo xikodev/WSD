@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title><%= quiz.title %></title>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <h1>Quiz Challenge</h1>
+      <p>Check your knowledge and complete all questions in order.</p>
+    </div>
+
+    <div class="main">
+      <div class="quiz-card">
+        <h2><%= quiz.title %></h2>
+        <p class="description"><%= quiz.description %></p>
+
+        <div class="quiz-info">
+          <div class="info-item">
+            <span><%= questionCount %> Questions</span>
+          </div>
+          <div class="info-item">
+            <span>One answer per question</span>
+          </div>
+        </div>
+
+        <div>
+          <a class="start-btn" href="/quiz/start">Start quiz</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,21 @@
+{
+  "name": "movie-app-solution",
+  "version": "1.0.0",
+  "description": "Movie app solution for final exam 2023/2024",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "keywords": [
+    "express",
+    "ejs",
+    "mvc"
+  ],
+  "author": "OpenAI Codex",
+  "license": "MIT",
+  "dependencies": {
+    "ejs": "^3.1.8",
+    "express": "^4.18.1",
+    "express-session": "^1.17.3"
+  }
+}
